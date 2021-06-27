@@ -2,23 +2,23 @@ import { CardActions, Button,CardContent, CardMedia, Container ,Grid,Card ,Typog
 import React from 'react'
 import {useStyles} from './HomePage.styles'
 
-const ImageArray=[1,2,3,4,5,6,7,8,9,10,12]
 
-const HomePage = ({brandVochers}) => {
+
+const HomePage = ({vouchers}) => {
     const classes=useStyles();
     return (
         <div>
             <CssBaseline/>
             <Container maxWidth="md" className={classes.container}>
                 <Grid container  spacing={4}  >
-                    { brandVochers && brandVochers.map(()=>{
+                    { vouchers && vouchers.map((voucher)=>{
                      return (
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={voucher.id}>
                         <Card className={classes.cards}> 
-                        <CardMedia className={classes.cardMedia} image={brandVochers.image}/>
+                        <CardMedia className={classes.cardMedia} image={voucher.image}/>
                         <CardContent className={classes.cardContent}>
                         <Typography variant="h5" gutterBottom>
-                             {brandVochers.description}
+                             {voucher.description}
                             </Typography>
                             <CardActions>
                                 <Button>Submit</Button>
